@@ -11,7 +11,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-x-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 md:pt-28"
       style={{
         backgroundImage: `linear-gradient(to bottom right, rgba(103, 39, 109, 0.9), rgba(138, 61, 142, 0.85), rgba(212, 80, 167, 0.9)), url(${heroImage})`,
         backgroundSize: 'cover',
