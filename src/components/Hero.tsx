@@ -15,8 +15,8 @@ export function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-dvh flex-col overflow-x-hidden pt-24 md:pt-28">
-      <div className="pointer-events-none absolute inset-0 -z-10">
+    <section className="relative isolate flex min-h-dvh flex-col overflow-x-hidden bg-[#5c2462] pt-24 md:pt-28">
+      <div className="pointer-events-none absolute inset-0 z-0">
         <img
           src={heroImage2560}
           srcSet={`${heroImage960} 960w, ${heroImage1440} 1440w, ${heroImage2560} 2560w`}

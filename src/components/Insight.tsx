@@ -14,9 +14,9 @@ export function Insight() {
   return (
     <section
       id="insight"
-      className="relative overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 py-24"
+      className="relative isolate overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 py-24"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 z-0">
         <img
           src={insightBg2560}
           srcSet={`${insightBg960} 960w, ${insightBg1440} 1440w, ${insightBg2560} 2560w`}
