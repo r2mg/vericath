@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronDown, FileText, ArrowRight } from 'lucide-react';
-import heroImage from 'figma:asset/ee0f9905bf260215511a5ad1de7516322fe17e7d.png';
+import heroImage from '@/assets/happy-nurse-elder_resize2560.jpg';
 
 export function Hero() {
   const scrollToNext = () => {
@@ -10,19 +10,15 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-          }}
-        ></div>
-        {/* Purple gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#67276d]/90 via-[#8a3d8e]/85 to-[#d450a7]/90"></div>
-      </div>
-
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-x-hidden"
+      style={{
+        backgroundImage: `linear-gradient(to bottom right, rgba(103, 39, 109, 0.9), rgba(138, 61, 142, 0.85), rgba(212, 80, 167, 0.9)), url(${heroImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.div

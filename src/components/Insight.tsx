@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import outcomeImg from 'figma:asset/279570c24abf9b1aea6bf55bc726048a9aa273d4.png';
+import insightBg from '@/assets/solo-nurse2560.jpg';
 
 export function Insight() {
   const ref = React.useRef(null);
@@ -12,9 +12,10 @@ export function Insight() {
       id="insight"
       className="py-24 bg-gradient-to-br from-purple-50 to-blue-50 relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('${outcomeImg}')`,
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('${insightBg}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
       }}
     >
       <div className="max-w-4xl mx-auto px-6">

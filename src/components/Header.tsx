@@ -52,7 +52,7 @@ export function Header() {
         y: hidden ? -100 : 0 
       }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 will-change-transform bg-white border-b border-gray-200 shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 will-change-transform bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center">
