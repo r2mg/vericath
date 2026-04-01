@@ -189,4 +189,12 @@
 
 html {
   font-size: var(--font-size);
+  /* Offset anchor targets below the fixed header (py-4 + logo) */
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
