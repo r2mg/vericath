@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, MapPin } from 'lucide-react';
+import footerLogo from '@/imports/vercath_rev-1.png';
 
 export function Footer() {
   return (
@@ -9,7 +10,7 @@ export function Footer() {
           {/* Left Column - Company Info */}
           <div>
             <img 
-              src="/imports/vercath_rev-1.png" 
+              src={footerLogo} 
               alt="VeriCath" 
               className="h-auto w-32 md:w-[200px] mb-4"
             />

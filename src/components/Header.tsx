@@ -1,30 +1,44 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Menu, X } from 'lucide-react';
+import headerLogo from '@/imports/vericath.png';
 
 export function Header() {
   const [hidden, setHidden] = React.useState(false);
-  const [lastScrollY, setLastScrollY] = React.useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const lastScrollYRef = React.useRef(0);
+  const scrollRafRef = React.useRef<number | null>(null);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Hide navbar when scrolling down, show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setHidden(true);
-        setMobileMenuOpen(false); // Close mobile menu when hiding navbar
-      } else {
-        setHidden(false);
-      }
-      
-      setLastScrollY(currentScrollY);
+      if (scrollRafRef.current != null) return;
+      scrollRafRef.current = requestAnimationFrame(() => {
+        scrollRafRef.current = null;
+        const currentScrollY = window.scrollY;
+        const lastScrollY = lastScrollYRef.current;
+        lastScrollYRef.current = currentScrollY;
+
+        const shouldHide =
+          currentScrollY > lastScrollY && currentScrollY > 100;
+
+        if (shouldHide) {
+          setHidden((h) => (h ? h : true));
+          setMobileMenuOpen((open) => (open ? false : open));
+        } else {
+          setHidden((h) => (h ? false : h));
+        }
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollRafRef.current != null) {
+        cancelAnimationFrame(scrollRafRef.current);
+        scrollRafRef.current = null;
+      }
+    };
+  }, []);
 
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
@@ -38,12 +52,12 @@ export function Header() {
         y: hidden ? -100 : 0 
       }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 will-change-transform bg-white border-b border-gray-200 shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <img 
-            src="/imports/vericath.png" 
+            src={headerLogo} 
             alt="VeriCath" 
             className="h-auto w-40 md:w-[250px]"
           />

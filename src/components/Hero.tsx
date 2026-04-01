@@ -17,7 +17,6 @@ export function Hero() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${heroImage})`,
-            backgroundAttachment: 'fixed'
           }}
         ></div>
         {/* Purple gradient overlay */}

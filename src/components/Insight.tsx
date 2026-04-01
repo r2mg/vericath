@@ -15,7 +15,6 @@ export function Insight() {
         backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('${outcomeImg}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
       }}
     >
       <div className="max-w-4xl mx-auto px-6">

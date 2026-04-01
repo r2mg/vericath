@@ -4,19 +4,26 @@ import { ArrowUp } from 'lucide-react';
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = React.useState(false);
+  const scrollRafRef = React.useRef<number | null>(null);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      // Show button when user scrolls past the hero section (roughly viewport height)
-      if (window.scrollY > window.innerHeight) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      if (scrollRafRef.current != null) return;
+      scrollRafRef.current = requestAnimationFrame(() => {
+        scrollRafRef.current = null;
+        const next = window.scrollY > window.innerHeight;
+        setIsVisible((v) => (v === next ? v : next));
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollRafRef.current != null) {
+        cancelAnimationFrame(scrollRafRef.current);
+        scrollRafRef.current = null;
+      }
+    };
   }, []);
 
   const scrollToTop = () => {
