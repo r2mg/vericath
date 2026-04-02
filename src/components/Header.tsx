@@ -82,9 +82,6 @@ export function Header() {
           <a href="#team" className="text-gray-700 hover:text-[#67276D] transition-colors">
             Team
           </a>
-          <a href="#invest" className="text-gray-700 hover:text-[#67276D] transition-colors" onClick={handleLinkClick}>
-            Invest
-          </a>
           <a 
             href="mailto:info@vericath.com"
             className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#67276D] text-white rounded-lg hover:bg-[#8a3d8e] transition-all duration-300 hover:shadow-lg" 
@@ -138,9 +135,6 @@ export function Header() {
               </a>
               <a href="#team" className="text-gray-700 hover:text-[#67276D] transition-colors" onClick={handleLinkClick}>
                 Team
-              </a>
-              <a href="#invest" className="text-gray-700 hover:text-[#67276D] transition-colors" onClick={handleLinkClick}>
-                Invest
               </a>
               <button className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#67276D] text-white rounded-lg hover:bg-[#8a3d8e] transition-all duration-300 hover:shadow-lg" onClick={handleLinkClick}>
                 Connect with us

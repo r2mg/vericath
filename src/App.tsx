@@ -7,7 +7,6 @@ import { Solution } from './components/Solution';
 import { Market } from './components/Market';
 import { Impact } from './components/Impact';
 import { Team } from './components/Team';
-import { Invest } from './components/Invest';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import faviconImage from 'figma:asset/753bd38a2f50b61d213f1cacab33f3832b819f6e.png';
@@ -34,7 +33,6 @@ export default function App() {
       <Market />
       <Impact />
       <Team />
-      <Invest />
       <Footer />
       <ScrollToTop />
     </div>

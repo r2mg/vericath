@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { X } from 'lucide-react';
+import { X, ArrowRight, FileText } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import robertImage from 'figma:asset/818726e28c151ec0ba72b4571f5c7e34899ffa8b.png';
 import georgeImage from 'figma:asset/f1a7f82b58c904a7e0174610890b9a3c34a6cbd2.png';
@@ -57,19 +57,22 @@ export function Team() {
 
   return (
     <>
-      <section id="team" className="py-24 bg-gradient-to-br from-purple-50 to-blue-50">
-        <div className="max-w-6xl mx-auto px-6">
+      <section
+        id="team"
+        className="bg-gradient-to-br from-[#67276d] to-[#d450a7] py-24 text-white"
+      >
+        <div className="mx-auto max-w-6xl px-6">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl text-center mb-12 text-gray-900">
+            <h2 className="mb-12 text-center text-4xl md:text-5xl text-white">
               Meet Our Team
             </h2>
-            
-            <p className="text-lg md:text-xl text-gray-700 text-center max-w-4xl mx-auto mb-16 leading-relaxed">
+
+            <p className="mx-auto mb-16 max-w-4xl text-center text-lg leading-relaxed text-white/95 md:text-xl">
               VeriCath is led by a multidisciplinary team with deep experience in medicine, engineering, product development, manufacturing, and healthcare investment. Together, the team brings decades of operational leadership and technical expertise to the challenge of redefining urinary care for women.
             </p>
 
@@ -101,6 +104,23 @@ export function Team() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+
+            <div className="mt-16 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href="mailto:info@vericath.com"
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-4 text-[#67276D] transition-all duration-300 hover:scale-105 hover:bg-gray-100 hover:shadow-lg"
+              >
+                Contact Us
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:info@vericath.com?subject=Investor%20Materials%20Request"
+                className="inline-flex items-center gap-2 rounded-lg bg-transparent px-8 py-4 text-white shadow-[inset_0_0_0_2px_white] transition-all duration-300 hover:bg-white/10"
+              >
+                <FileText className="h-5 w-5" />
+                Request Investor Information
+              </a>
             </div>
           </motion.div>
         </div>
